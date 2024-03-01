@@ -4,6 +4,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const searchParams = req.nextUrl.searchParams
   const id = searchParams.get('id')
 
+  console.log('id', id)
+
   const idAsNumber = id ? Number(id) : 1
 
   const nextId = idAsNumber + 1
@@ -11,6 +13,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   if (idAsNumber === 4) {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <title>This is frame 4</title>
+    <meta property="og:image" content="${process.env.NEXT_PUBLIC_SITE_URL}/park-4.png" />
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${process.env.NEXT_PUBLIC_SITE_URL}/park-4.png" />
     <meta property="fc:frame:button:1" content="View Tutorial" />
@@ -24,6 +27,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   return new NextResponse(`<!DOCTYPE html><html><head>
     <title>This is frame ${id}</title>
+    <meta property="og:image" content="${process.env.NEXT_PUBLIC_SITE_URL}/park-${id}.png" />
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${process.env.NEXT_PUBLIC_SITE_URL}/park-${id}.png" />
     <meta property="fc:frame:button:1" content="Next Page" />
