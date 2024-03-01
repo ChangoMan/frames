@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
+    <div>
       <h1>hunterchang.com</h1>
-    </>
+    </div>
   )
 }
