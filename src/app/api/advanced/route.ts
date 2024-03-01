@@ -13,6 +13,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const { isValid, message } = await getFrameMessage(body)
 
   console.log('isValid', isValid)
+  console.log('message', message)
 
   if (isValid) {
     accountAddress = message.interactor.verified_accounts[0]

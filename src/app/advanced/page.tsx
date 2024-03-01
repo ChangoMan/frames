@@ -23,7 +23,7 @@ const frameMetadata = getFrameMetadata({
   input: {
     text: 'Tell me a boat story',
   },
-  postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/frame`,
+  postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/advanced`,
 })
 
 export const metadata: Metadata = {
