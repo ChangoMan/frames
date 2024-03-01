@@ -1,46 +1,41 @@
-import {
-  FrameRequest,
-  getFrameHtmlResponse,
-  getFrameMessage,
-} from '@coinbase/onchainkit/frame'
+import { FrameRequest, getFrameHtmlResponse } from '@coinbase/onchainkit/frame'
 import { NextRequest, NextResponse } from 'next/server'
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
-  let accountAddress: string | undefined = ''
-  let text: string | undefined = ''
-
   const body: FrameRequest = await req.json()
-  const { isValid, message } = await getFrameMessage(body)
 
-  console.log('isValid', isValid)
-  console.log('message', message)
+  const { untrustedData } = body
 
-  if (isValid) {
-    accountAddress = message.interactor.verified_accounts[0]
-  }
+  const isValidEmail = untrustedData.inputText.match(
+    /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+  )
 
-  if (message?.input) {
-    text = message.input
-  }
-
-  if (message?.button === 3) {
-    return NextResponse.redirect(
-      'https://www.google.com/search?q=cute+dog+pictures&tbm=isch&source=lnms',
-      { status: 302 }
+  if (!untrustedData.inputText || !isValidEmail) {
+    return new NextResponse(
+      getFrameHtmlResponse({
+        buttons: [
+          {
+            label: 'Valid Email Required!',
+          },
+        ],
+        image: {
+          src: `${process.env.NEXT_PUBLIC_SITE_URL}/site-preview.jpg`,
+        },
+        input: {
+          text: 'Valid Email Required!',
+        },
+        postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/advanced`,
+      })
     )
   }
 
+  console.log('EMAIL', untrustedData.inputText)
+
   return new NextResponse(
     getFrameHtmlResponse({
-      buttons: [
-        {
-          label: `Story: 🌲🌲`,
-        },
-      ],
       image: {
         src: `${process.env.NEXT_PUBLIC_SITE_URL}/park-1.png`,
       },
-      postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/advanced`,
     })
   )
 }

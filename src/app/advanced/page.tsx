@@ -4,35 +4,25 @@ import type { Metadata } from 'next'
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Story time!',
-    },
-    {
-      action: 'link',
-      label: 'Link to Google',
-      target: 'https://www.google.com',
-    },
-    {
-      label: 'Redirect to pictures',
-      action: 'post_redirect',
+      label: 'Sign Up!',
     },
   ],
   image: {
-    src: `${process.env.NEXT_PUBLIC_SITE_URL}/park-3.png`,
-    aspectRatio: '1:1',
+    src: `${process.env.NEXT_PUBLIC_SITE_URL}/site-preview.jpg`,
   },
   input: {
-    text: 'Tell me a boat story',
+    text: 'Your Email',
   },
   postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/advanced`,
 })
 
 export const metadata: Metadata = {
-  title: 'zizzamia.xyz',
-  description: 'LFG',
+  title: 'My Advanced Frame',
+  description: 'Another Frame Example',
   openGraph: {
-    title: 'zizzamia.xyz',
-    description: 'LFG',
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/park-1.png`],
+    title: 'My Advanced Frame',
+    description: 'Another Frame Example',
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/site-preview.jpg`],
   },
   other: {
     ...frameMetadata,
