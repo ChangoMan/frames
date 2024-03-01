@@ -6,7 +6,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'My First Frame',
     description: 'A Farcaster Frame Demo',
-    images: [`${process.env.NEXT_PUBLIC_URL}/park-1.png`],
+    images: [`${process.env.NEXT_PUBLIC_URL}/site-preview.jpg`],
+  },
+  other: {
+    'fc:frame': 'vNext',
+    'fc:frame:image': `${process.env.NEXT_PUBLIC_URL}/site-preview.jpg`,
   },
 }
 
