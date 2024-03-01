@@ -11,30 +11,37 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   )
 
   if (!untrustedData.inputText || !isValidEmail) {
+    const searchParams = new URLSearchParams({
+      title: 'Valid Email Required',
+    })
+
     return new NextResponse(
       getFrameHtmlResponse({
         buttons: [
           {
-            label: 'Valid Email Required!',
+            label: 'Try Again',
           },
         ],
         image: {
-          src: `${process.env.NEXT_PUBLIC_SITE_URL}/site-preview.jpg`,
+          src: `${process.env.NEXT_PUBLIC_SITE_URL}/og?${searchParams}`,
         },
         input: {
-          text: 'Valid Email Required!',
+          text: 'Your Email',
         },
         postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/advanced`,
       })
     )
   }
 
-  console.log('EMAIL', untrustedData.inputText)
+  const searchParams = new URLSearchParams({
+    title: 'Signup Successful',
+    titleTwo: untrustedData.inputText,
+  })
 
   return new NextResponse(
     getFrameHtmlResponse({
       image: {
-        src: `${process.env.NEXT_PUBLIC_SITE_URL}/park-1.png`,
+        src: `${process.env.NEXT_PUBLIC_SITE_URL}/og?${searchParams}`,
       },
     })
   )
