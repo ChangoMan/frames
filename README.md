@@ -1,4 +1,6 @@
-## Watch the companion [YouTube tutorial](https://youtu.be/g_pkATT8pYU?si=8KwGSzJ_nxWHx-k3)
+## 👀 Watch the companion [YouTube tutorial](https://youtu.be/g_pkATT8pYU?si=8KwGSzJ_nxWHx-k3)
+
+### 🖥️ [Live Demo](https://frames-gilt.vercel.app/basic)
 
 ## Getting Started
 
@@ -31,6 +33,9 @@ https://docs.farcaster.xyz/reference/frames/spec
 
 Coinbase onchainkit for local frame testing:
 https://github.com/coinbase/onchainkit
+
+Generate Open Graph images dynamically:
+https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx
 
 Join Warpcast to see frames in action:
 https://warpcast.com/~/invite-page/341454?id=497d9b60
