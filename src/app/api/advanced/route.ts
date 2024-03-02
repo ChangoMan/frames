@@ -35,7 +35,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   const searchParams = new URLSearchParams({
     title: 'Signup Successful',
-    titleTwo: untrustedData.inputText,
+    description: untrustedData.inputText,
   })
 
   return new NextResponse(

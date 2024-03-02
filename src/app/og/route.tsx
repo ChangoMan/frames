@@ -14,10 +14,10 @@ export async function GET(request: Request) {
       ? searchParams.get('title')?.slice(0, 100)
       : 'Default Title'
 
-    // ?title=<title>
-    const hasTitleTwo = searchParams.has('titleTwo')
-    const titleTwo = hasTitleTwo
-      ? searchParams.get('titleTwo')?.slice(0, 100)
+    // ?description=
+    const hasDescription = searchParams.has('description')
+    const description = hasDescription
+      ? searchParams.get('description')?.slice(0, 100)
       : ''
 
     return new ImageResponse(
@@ -36,27 +36,34 @@ export async function GET(request: Request) {
             textAlign: 'center',
           }}
         >
-          <div
+          <p
             style={{
               backgroundImage:
                 'linear-gradient(90deg, rgb(0, 124, 240), rgb(0, 223, 216))',
               backgroundClip: 'text',
               color: 'transparent',
+              fontSize: 80,
+              fontWeight: 700,
+              margin: 0,
             }}
           >
             {title}
-          </div>
-          {titleTwo && (
-            <div
+          </p>
+          {description && (
+            <p
               style={{
                 backgroundImage:
                   'linear-gradient(90deg, rgb(121, 40, 202), rgb(255, 0, 128))',
                 backgroundClip: 'text',
                 color: 'transparent',
+                fontSize: 80,
+                fontWeight: 700,
+                margin: 0,
+                marginTop: 20,
               }}
             >
-              {titleTwo}
-            </div>
+              {description}
+            </p>
           )}
         </div>
       ),
