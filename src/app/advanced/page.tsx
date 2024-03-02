@@ -17,11 +17,11 @@ const frameMetadata = getFrameMetadata({
 })
 
 export const metadata: Metadata = {
-  title: 'My Advanced Frame',
-  description: 'Another Frame Example',
+  title: 'Advanced Frame',
+  description: 'Another, more advanced frame example',
   openGraph: {
-    title: 'My Advanced Frame',
-    description: 'Another Frame Example',
+    title: 'Advanced Frame',
+    description: 'Another, more advanced frame example',
     images: [`${process.env.NEXT_PUBLIC_SITE_URL}/site-preview.jpg`],
   },
   other: {
