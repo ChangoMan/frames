@@ -4,6 +4,8 @@
 
 ### 🖥️ [Live Demo](https://frames-gilt.vercel.app/basic)
 
+Paste the live demo url into https://warpcast.com/~/developers/frames to validate the frame.
+
 ## Getting Started
 
 First, run the development server:
@@ -32,6 +34,9 @@ Images are also from the repo mentioned above.
 
 Official documentation on Farcaster frames:
 https://docs.farcaster.xyz/reference/frames/spec
+
+Warpcast Frames Validator:
+https://warpcast.com/~/developers/frames
 
 Coinbase onchainkit for local frame testing:
 https://github.com/coinbase/onchainkit
