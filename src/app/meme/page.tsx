@@ -8,12 +8,12 @@ const frameMetadata = getFrameMetadata({
     },
   ],
   image: {
-    src: `${process.env.NEXT_PUBLIC_SITE_URL}/meme`,
+    src: `${process.env.NEXT_PUBLIC_SITE_URL}/meme/a`,
   },
   input: {
     text: 'Text',
   },
-  postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/meme/simply`,
+  postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/meme`,
 })
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Meme Generator',
     description: 'Farcaster Frame to generate a customized meme',
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/meme`],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/meme/a`],
   },
   other: {
     ...frameMetadata,

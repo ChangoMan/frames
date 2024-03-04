@@ -13,8 +13,14 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   return new NextResponse(
     getFrameHtmlResponse({
       image: {
-        src: `${process.env.NEXT_PUBLIC_SITE_URL}/meme?${searchParams}`,
+        src: `${process.env.NEXT_PUBLIC_SITE_URL}/meme/a?${searchParams}`,
       },
+      buttons: [
+        {
+          label: 'Start Over 🔄',
+        },
+      ],
+      postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/meme`,
     })
   )
 }
