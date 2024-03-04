@@ -11,7 +11,7 @@ export async function GET(request: Request) {
   const text = hasText ? searchParams.get('text')?.slice(0, 100) : ''
 
   const imageData = await fetch(
-    new URL('./meme-simply.png', import.meta.url)
+    new URL('./meme-simply.jpg', import.meta.url)
   ).then((res) => res.arrayBuffer())
 
   const fontData = await fetch(
