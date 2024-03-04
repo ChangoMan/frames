@@ -1,21 +1,20 @@
-import { getFrameHtmlResponse } from '@coinbase/onchainkit/frame'
+import { FrameRequest, getFrameHtmlResponse } from '@coinbase/onchainkit/frame'
 import { NextRequest, NextResponse } from 'next/server'
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
+  const body: FrameRequest = await req.json()
+
+  const { untrustedData } = body
+
+  const searchParams = new URLSearchParams({
+    text: untrustedData.inputText,
+  })
+
   return new NextResponse(
     getFrameHtmlResponse({
-      buttons: [
-        {
-          label: 'Generate!',
-        },
-      ],
       image: {
-        src: `${process.env.NEXT_PUBLIC_SITE_URL}/meme`,
+        src: `${process.env.NEXT_PUBLIC_SITE_URL}/meme?${searchParams}`,
       },
-      input: {
-        text: 'Text',
-      },
-      postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/meme/simply`,
     })
   )
 }

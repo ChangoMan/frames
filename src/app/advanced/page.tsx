@@ -4,14 +4,11 @@ import type { Metadata } from 'next'
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Sign Up!',
+      label: 'Start',
     },
   ],
   image: {
     src: `${process.env.NEXT_PUBLIC_SITE_URL}/site-preview.jpg`,
-  },
-  input: {
-    text: 'Your Email',
   },
   postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/advanced`,
 })
