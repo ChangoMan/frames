@@ -14,6 +14,10 @@ export async function GET(request: Request) {
     new URL('./meme-simply.png', import.meta.url)
   ).then((res) => res.arrayBuffer())
 
+  const fontData = await fetch(
+    new URL('../../../assets/Oswald-Bold.ttf', import.meta.url)
+  ).then((res) => res.arrayBuffer())
+
   return new ImageResponse(
     (
       <div
@@ -28,14 +32,18 @@ export async function GET(request: Request) {
           position: 'relative',
         }}
       >
-        <img width="1200" height="630" src={imageData} />
+        <img width="1200" height="630" alt="meme" src={imageData} />
         <p
           style={{
             position: 'absolute',
             margin: 0,
+            paddingTop: 450,
             color: '#ffffff',
-            fontSize: 80,
-            fontWeight: 700,
+            fontSize: 100,
+            fontFamily: '"Oswald Bold"',
+            textTransform: 'uppercase',
+            textShadow:
+              '3px 3px 2px #000, -3px 3px 2px #000, -3px -3px 0 #000, 3px -3px 0 #000',
           }}
         >
           {text}
@@ -45,6 +53,13 @@ export async function GET(request: Request) {
     {
       width: 1200,
       height: 630,
+      fonts: [
+        {
+          name: 'Oswald Bold',
+          data: fontData,
+          style: 'normal',
+        },
+      ],
     }
   )
 }
