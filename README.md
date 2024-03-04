@@ -59,6 +59,9 @@ Basic Frame example is heavily inspired by [https://github.com/Zizzamia/a-frame-
 
 Images are also from the repo mentioned above.
 
+Basic Frame API code was taken from:
+https://www.pinata.cloud/blog/how-to-make-a-frame-on-farcaster-using-ipfs
+
 Official documentation on Farcaster frames:
 https://docs.farcaster.xyz/reference/frames/spec
 
